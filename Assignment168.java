@@ -1,0 +1,81 @@
+import java.util.*;
+
+class Assignment168
+{
+	public static void main(String arg[])
+	{
+		Scanner sobj = new Scanner(System.in);
+		int iLength = 0, iNo = 0;
+		int iRet = 0;
+		
+		System.out.println("Enter the number of elements");
+		iLength = sobj.nextInt();
+		
+		System.out.println("Enter serching Digit");
+		iNo = sobj.nextInt();
+		
+		Marvellous mobj = new Marvellous(iLength); //constructor call
+		mobj.Accept();
+		mobj.Display();
+		iRet = mobj.Check(iNo);
+		System.out.println("First occurance of number : "+iRet);
+		
+		
+		
+	}
+}
+
+class ArrayX
+{
+	public int Arr[];
+	
+	public ArrayX(int iSize)
+	{
+		Arr = new int[iSize];
+	}
+	
+	public void Accept()
+	{
+		Scanner sobj = new Scanner(System.in);
+		int iCnt = 0;
+		System.out.println("Enter elements");
+		for(iCnt = 0; iCnt <Arr.length; iCnt++)
+		{
+			Arr[iCnt] = sobj.nextInt();
+		}
+	}
+	public void Display()
+	{
+		int iCnt = 0;
+		System.out.println("Elements are:");
+		for(iCnt = 0; iCnt < Arr.length; iCnt++)
+		{
+			System.out.print("\t"+Arr[iCnt]);
+		}
+		System.out.println();
+	}
+}
+
+class Marvellous extends ArrayX
+{
+	public Marvellous(int iValue)
+	{
+		super (iValue); 
+	}
+	
+	public int Check(int iNo)
+	{
+		int iSum = 0, iCnt = 0, iCount = 0;
+		
+		
+		for(iCnt = 0; iCnt < Arr.length; iCnt++)
+		{
+			 if(Arr[iCnt] == iNo)
+			 {
+				iCount = iCnt;
+			 }
+		}
+		return iCount;
+		
+	}
+}
